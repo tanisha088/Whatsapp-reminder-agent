@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "propane-fusion-241012",
+  "private_key_id": "a5b9afcb6347661d56cc044c2de8efd30d1911ad",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDhvcJ4vRpRXRRk\nQaw2M7Hz4E6Q/9QU+MTGiIBw1VTlRdkeYnU/9TDBURzHPDi9hHZfbgoihtE6VZIw\nYXSwKWXZbez6CZnWbwEQ4T4reettMCuNPVys0Q0exvTzoRvt9B/YpKQ4+D9vwYxH\nj80+oBRNbtNIiJOWrcDY+sfNSqAaECHuMZDIlV7nIggWKpCvke8tKJQhzbPk2gP6\nGgJP3zmsJrsrB0UkctUfWhfu5k5Xz4Np9MTsPpEk2S5lCCD1oakUDwCUSiObFTO7\nSbZfGVOTFlUL15SB9JomnrZZNPoRmQIxRAF8X+qVrwQEsAauL36WVeB24IPd6cfF\ngb+8qeerAgMBAAECggEADk/Uk4kRsRTgpRaQz4LphlezQ3gkvwuilh+zXPP5hOuv\nv0BoxJxL8gWteGg2BLXwN06nr9ayTyt7sDuNhVmqjmVsv9F6AmFZRPOy2FjLd0m1\niSfZx08dsNTWVNfjCGwQ1NBjZQVAKFqyBRt13MGTZ/Fdzdxy1vu/HUKRBk/z5JMA\nyDg4jkju8jSxOwM6TS9hmfaoKLji7ttPd3Qn6hB1dXX+bfiE5RKuklpbf6ftJ2LQ\nAQaiBqvZEttbyK+edUF3zwl1Oby2EXj0SHYiKAjUdkEVv7Wld2aKcPuidKaqdaxu\n9aIE+KYcBHOM/cKOyy7qAEsuIW5F6fPod4qVGxARqQKBgQDxIv1ILnLMSlFumZ+s\nEcmFrqnsQXSvswgzojk1O53AqTxtfgph5JBRtdY8T2YbToGeeyNI0S7hN1P9rgBt\nNDgHqunDFDZNjIO3uUj1WTIWC5lyWIPz+j6OSE+0ZpM/s2BAYLRdMNf9uDnXWZYW\n/42QRO61jWOST8aUoOfAFtS3zwKBgQDvp9ale4uL05xTRDNSgfQbx40gjUqPBf+C\nqhes15sl9nEOhmvr9kiwU1bERWWn9Si3x+bMrRc4O55J6WeAMY1M2OTmjZMT91bI\nYbkfR6UJtTtz7xEDWox3uDo3mD0boiAStTTZbOuC+u9i7gpQbgTeiEngI3DI4IY/\nMPuNkDItZQKBgQCHqM2hvC/taqohdN/1qBQd10PVnIWPC0PD+LIClsWLTCqo1s30\ngOgIcCpUx76EAki95jzVjIm5Pq1L/IZU6ZnUBn14uHhMbI7135GCJmodKO1s/QtP\nSSvEVD4zGbohjkLKNR2DiCUbonc4BjiAO8lirsU08pRgDe2EVHnNAYsu1QKBgQCR\n9RxrSKUikcyBgeXn+DGdwZkYHDUuii6le8ZThDR/mGoeuIt9+E8o5HjRrJpPAqa7\n10mfmkOsAdNTnI1mq8cs6GPwboUHAfqeq7W9cTr4gKIm55DrA/jM6Sy7s0J0U/dI\nrYf0a7u71+x3yhYKChd5GHQ1yB/ml6frUH/EJfAJaQKBgQCBROaSuOF74GSNq+Fr\nJLK4tA1DktfFyHt+COATBrxFpn+iwwy0IdNgHcJPKZ+eEuB2kSd0KAuJtPJG6ibZ\nrFUFjz/OVBFiPlCqmBIvRu+dss65f4Sxx+IpRI3+BEIrj6QhQG+AyvZpuQws/iTP\nBE5U1W9Gx7P+94O9k3/531gLfg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "whatsapp-bot@propane-fusion-241012.iam.gserviceaccount.com",
+  "client_id": "100180706483295378223",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/whatsapp-bot%40propane-fusion-241012.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
