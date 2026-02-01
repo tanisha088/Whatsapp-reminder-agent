@@ -24,7 +24,7 @@ jobs:
 
       - name: Create Google credentials file
         run: |
-          echo '${{ secrets.GOOGLE_CREDENTIALS_JSON }}' > credentials.json
+          printf '%s' "${{ secrets.GOOGLE_CREDENTIALS_JSON }}" > credentials.json
 
       - name: Run script
         env:
