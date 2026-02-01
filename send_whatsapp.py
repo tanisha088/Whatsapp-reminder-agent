@@ -1,66 +1,54 @@
+import os
 import pandas as pd
-from datetime import datetime
+import random
 from twilio.rest import Client
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-import re
-import os
 
-# ---------- Google Sheets ----------
-SCOPE = [
+# --- Google Sheets setup ---
+scopes = [
     "https://spreadsheets.google.com/feeds",
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = ServiceAccountCredentials.from_json_keyfile_name(
-    "credentials.json", SCOPE
-)
+creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scopes)
 gs = gspread.authorize(creds)
 
-sheet = gs.open("Whatsapped sheet").sheet1   # <-- sheet name exactly
+# Replace with the exact name of your Google Sheet
+sheet_name = "Whatsapped sheet"
+sheet = gs.open(sheet_name).sheet1
+
+# Load data into pandas
 data = sheet.get_all_records()
 df = pd.DataFrame(data)
 
-# ---------- Select problem ----------
-unsolved = df[df["Solved"] == False]
+# Filter unsolved problems
+unsolved = df[df['Solved'] == False]
 
 if unsolved.empty:
-    print("All problems solved 🎉")
-    exit()
+    print("All problems solved! 🎉")
+    exit(0)
 
-# Least sent, oldest last sent
-unsolved = unsolved.sort_values(
-    by=["Sent_Count", "Last_Sent"],
-    na_position="first"
+# Pick a random unsolved problem
+target_row = unsolved.sample(1).iloc[0]
+question_link = target_row['Question_Link']
+
+# --- Twilio WhatsApp ---
+account_sid = os.environ["TWILIO_ACCOUNT_SID"]
+auth_token = os.environ["TWILIO_AUTH_TOKEN"]
+client = Client(account_sid, auth_token)
+
+# Change to your WhatsApp number
+my_number = "whatsapp:+917065650639"
+
+message = client.messages.create(
+    from_="whatsapp:+14155238886",  # Twilio Sandbox number
+    body=f"Time to grind! Today's question: {question_link}",
+    to=my_number
 )
 
-row = unsolved.iloc[0]
+print("WhatsApp message sent successfully!")
+print("Question URL:", question_link)
 
-# Extract problem name from URL
-match = re.search(r"problems/([^/]+)", row["Question_Link"])
-problem_name = match.group(1).replace("-", " ").title() if match else "LeetCode Problem"
-
-row_idx = df.index[df["Question_Link"] == row["Question_Link"]][0] + 2
-
-# ---------- Twilio ----------
-client = Client(
-    auth_token=os.environ["TWILIO_AUTH_TOKEN"],
-    username=os.environ["TWILIO_ACCOUNT_SID"]
-)
-
-client.messages.create(
-    from_="whatsapp:+14155238886",
-    to="whatsapp:+917065650639",
-    body=f"""📌 Daily NeetCode Problem
-
-{problem_name}
-{row['Question_Link']}
-
-Focus on intuition, not speed."""
-)
-
-# ---------- Update Sheet ----------
-sheet.update_cell(row_idx, 3, row["Sent_Count"] + 1)
-sheet.update_cell(row_idx, 4, datetime.utcnow().strftime("%Y-%m-%d"))
-
-print("Message sent successfully")
+# Optional: mark as solved in the sheet (if you want automation)
+# sheet.update_cell(target_row.name + 2, df.columns.get_loc("Solved")+1, True)
